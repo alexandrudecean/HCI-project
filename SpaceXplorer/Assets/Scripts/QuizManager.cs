@@ -1,60 +1,84 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class QuizManager : MonoBehaviour
 {
-    public Text questionText1;
-    public Text questionText2; // Textul pentru informații despre planetă
-    public Text planetInfoText;
-    private PlanetQuizData currentQuizData;
-    private int currentQuestionIndex;
-    public GameObject quizPanel;
+    [SerializeField] private GameObject question1;
+    [SerializeField] private GameObject question2;
+    [SerializeField] private GameObject closeButton;
+    [SerializeField] private GameObject fact;
+    [SerializeField] private Text responseText;
+    [SerializeField] private bool isFirstTrueButtonCorrect;
+    [SerializeField] private bool isSecondTrueButtonCorrect;
 
-    public void SetQuizData(PlanetQuizData quizData)
+    public void Start()
     {
-        currentQuizData = quizData;
-        currentQuestionIndex = 0;
-        planetInfoText.text = quizData.planetInfo; // Afișăm informațiile planetei
-        DisplayQuestion();
+        InitializeButtons(question1, 1, isFirstTrueButtonCorrect);
+        InitializeButtons(question2, 2, isSecondTrueButtonCorrect);
+
+        question1.SetActive(true);
+        question2.SetActive(false);
+        responseText.gameObject.SetActive(false);
+        closeButton.SetActive(false);
+        fact.SetActive(false);
     }
 
-    private void DisplayQuestion()
+    void InitializeButtons(GameObject questionObject, int questionNumber, bool isTrueButtonCorrect)
     {
-        if (currentQuestionIndex < currentQuizData.questions.Count)
+        Transform buttonContainer = questionObject.transform.Find("QuestionButtons");
+
+        Button buttonTrue = buttonContainer.Find("ButtonTrue").GetComponent<Button>();
+        Button buttonFalse = buttonContainer.Find("ButtonFalse").GetComponent<Button>();
+
+        buttonTrue.onClick.AddListener(() => HandleAnswer(isTrueButtonCorrect, questionNumber));
+        buttonFalse.onClick.AddListener(() => HandleAnswer(!isTrueButtonCorrect, questionNumber));
+    }
+
+    void HandleAnswer(bool isCorrect, int questionNumber)
+    {
+        if (isCorrect)
         {
-            questionText1.text = currentQuizData.questions[currentQuestionIndex].question;
-            questionText2.text = currentQuizData.questions[currentQuestionIndex].question;
+            responseText.text = "Corect!";
+            responseText.color = new Color(0, 1, 0, 1);
         }
         else
         {
-            Debug.Log("Quiz finalizat!");
-            gameObject.SetActive(false); // Ascunde UI-ul când termină întrebările
+            responseText.text = "Incorect!";
+            responseText.color = new Color(1, 0, 0, 1);
+        }
+
+        responseText.gameObject.SetActive(true);
+
+        if (questionNumber == 1)
+        {
+            question1.SetActive(false);
+            StartCoroutine(ProceedToNextQuestion(question2));
+        }
+        else if (questionNumber == 2)
+        {
+            question2.SetActive(false);
+            StartCoroutine(ShowCloseButton());
         }
     }
 
-    public void AnswerQuestion(bool answer)
+    IEnumerator ProceedToNextQuestion(GameObject nextQuestion)
     {
-        if (currentQuizData.questions[currentQuestionIndex].correctAnswer == answer)
-        {
-            Debug.Log("Răspuns corect!");
-        }
-        else
-        {
-            Debug.Log("Răspuns greșit!");
-        }
+        yield return new WaitForSeconds(2f);
 
-        currentQuestionIndex++;
-        DisplayQuestion();
+        responseText.gameObject.SetActive(false);
+
+        nextQuestion.SetActive(true);
     }
-    // Funcție pentru a închide panel-ul
-    public void CloseQuiz()
+
+    IEnumerator ShowCloseButton()
     {
-        if (quizPanel != null)
-        {
-            quizPanel.SetActive(false);
-            Debug.Log("Panel-ul quiz-ului a fost închis!");
-        }
+        yield return new WaitForSeconds(2f);
+
+        responseText.gameObject.SetActive(false);
+
+        fact.SetActive(true);
+
+        closeButton.SetActive(true);
     }
 }

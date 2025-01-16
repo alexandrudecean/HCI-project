@@ -10,10 +10,9 @@ public class ArduinoQuiz : MonoBehaviour
 
     void Start()
     {
-        // Deschide portul doar dacă platforma este Android sau Windows
         if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsPlayer)
         {
-            serialPort = new SerialPort("COM3", 9600); // Setează portul corect
+            serialPort = new SerialPort("COM3", 9600); 
             try
             {
                 serialPort.Open();
@@ -34,33 +33,32 @@ public class ArduinoQuiz : MonoBehaviour
             try
             {
                 string input = serialPort.ReadLine();
-                if (input == "1") // Butonul pentru "adevărat"
+                if (input == "1") 
                 {
-                    quizManager.AnswerQuestion(true);
+                    //quizManager.AnswerQuestion(true);
                 }
-                else if (input == "2") // Butonul pentru "fals"
+                else if (input == "2") 
                 {
-                    quizManager.AnswerQuestion(false);
+                    //quizManager.AnswerQuestion(false);
                 }
             }
-            catch (System.TimeoutException) { } // Prinde timeout-ul și continuă
+            catch (System.TimeoutException) { } 
             catch (System.Exception e)
             {
                 Debug.LogError("Eroare la citirea portului: " + e.Message);
             }
         }
 
-        // Testare în Unity Editor cu tastele 1 și 2
         if (Application.isEditor)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                quizManager.AnswerQuestion(true);
+                //quizManager.AnswerQuestion(true);
                 Debug.Log("Testare Editor: Adevărat");
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                quizManager.AnswerQuestion(false);
+                //quizManager.AnswerQuestion(false);
                 Debug.Log("Testare Editor: Fals");
             }
         }
