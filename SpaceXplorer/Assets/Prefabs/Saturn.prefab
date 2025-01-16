@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7502509079477424903}
+  - component: {fileID: 2502348924370720331}
   m_Layer: 0
   m_Name: Saturn
   m_TagString: Untagged
@@ -27,11 +28,32 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1544724909408781907}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2502348924370720331
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213351898260733553}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 12.123137
+  m_Center: {x: -42.7, y: -0.1, z: -0.31}
 --- !u!1001 &1361580651936965048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -233,11 +255,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: -8338362918093965305, guid: 14d78f2c62633704280fec425a1edbfd,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8181785720372540307}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14d78f2c62633704280fec425a1edbfd, type: 3}
 --- !u!4 &1544724909408781907 stripped
 Transform:
@@ -245,30 +263,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1361580651936965048}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2210530165787154879 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -8338362918093965305, guid: 14d78f2c62633704280fec425a1edbfd,
-    type: 3}
-  m_PrefabInstance: {fileID: 1361580651936965048}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &8181785720372540307
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2210530165787154879}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: -3.43, y: 0, z: 0}

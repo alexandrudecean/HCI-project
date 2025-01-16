@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Planet : MonoBehaviour
 {
+    public PlanetQuizData quizData;
     [SerializeField] private GameObject sun;
     [SerializeField] private float distance;
     [SerializeField] private float speed = 1;
