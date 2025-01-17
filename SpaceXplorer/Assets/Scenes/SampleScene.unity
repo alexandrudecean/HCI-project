@@ -968,7 +968,7 @@ MonoBehaviour:
   fact: {fileID: 442084673}
   responseText: {fileID: 2036500440}
   isFirstTrueButtonCorrect: 1
-  isSecondTrueButtonCorrect: 1
+  isSecondTrueButtonCorrect: 0
 --- !u!850595691 &150576233
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -2465,6 +2465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 126fbd9071f2f7342a392236a79e5fad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quizManager: {fileID: 0}
 --- !u!4 &468929232
 Transform:
   m_ObjectHideFlags: 0
@@ -3681,7 +3682,7 @@ MonoBehaviour:
   fact: {fileID: 1616734090}
   responseText: {fileID: 534575010}
   isFirstTrueButtonCorrect: 1
-  isSecondTrueButtonCorrect: 1
+  isSecondTrueButtonCorrect: 0
 --- !u!114 &742976457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6574,7 +6575,7 @@ MonoBehaviour:
   closeButton: {fileID: 1384640991}
   fact: {fileID: 981074544}
   responseText: {fileID: 1556707971}
-  isFirstTrueButtonCorrect: 1
+  isFirstTrueButtonCorrect: 0
   isSecondTrueButtonCorrect: 1
 --- !u!1 &1374958865
 GameObject:
