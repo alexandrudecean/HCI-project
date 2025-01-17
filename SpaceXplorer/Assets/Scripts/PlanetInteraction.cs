@@ -1,32 +1,47 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem; 
 
 public class PlanetInteraction : MonoBehaviour
 {
-    public GameObject quizUI; // Panel-ul pentru această planetă
-    private static GameObject currentQuizUI; // Panel-ul activ curent
+    [SerializeField] private GameObject quizUI;
+    [SerializeField] private static GameObject currentQuizUI;
 
-    private void OnMouseDown()
+    private void Update()
     {
-        // Ascunde Panel-ul anterior dacă există
-        if (currentQuizUI != null)
+        if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
         {
-            currentQuizUI.SetActive(false);
+            HandleInput(Touchscreen.current.primaryTouch.position.ReadValue());
         }
-
-        // Activează Panel-ul acestei planete
-        quizUI.SetActive(true);
-        currentQuizUI = quizUI;
-
-        Debug.Log("Apăsat pe: " + gameObject.name);
+        else if (Mouse.current != null && Mouse.current.leftButton.isPressed)
+        {
+            HandleInput(Mouse.current.position.ReadValue());
+        }
     }
 
-    // Funcție pentru a închide panel-ul
+    private void HandleInput(Vector2 screenPosition)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            if (hit.collider.gameObject == gameObject) 
+            {
+                if (currentQuizUI != null && currentQuizUI.activeSelf)
+                {
+                    return;
+                }
+
+                quizUI.SetActive(true);
+                currentQuizUI = quizUI;
+            }
+        }
+    }
+
     public void CloseQuiz()
     {
         if (quizUI != null)
         {
             quizUI.SetActive(false);
-            Debug.Log("Quiz-ul a fost închis!");
         }
     }
 }

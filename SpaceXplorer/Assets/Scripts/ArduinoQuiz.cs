@@ -12,12 +12,11 @@ public class ArduinoQuiz : MonoBehaviour
     {
         if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsPlayer)
         {
-            serialPort = new SerialPort("COM3", 9600); 
+            serialPort = new SerialPort("COM3", 9600);
             try
             {
                 serialPort.Open();
                 serialPort.ReadTimeout = 1;
-                Debug.Log("Port serial deschis cu succes!");
             }
             catch (System.Exception e)
             {
@@ -33,16 +32,16 @@ public class ArduinoQuiz : MonoBehaviour
             try
             {
                 string input = serialPort.ReadLine();
-                if (input == "1") 
+                if (input == "1")
                 {
                     //quizManager.AnswerQuestion(true);
                 }
-                else if (input == "2") 
+                else if (input == "2")
                 {
                     //quizManager.AnswerQuestion(false);
                 }
             }
-            catch (System.TimeoutException) { } 
+            catch (System.TimeoutException) { }
             catch (System.Exception e)
             {
                 Debug.LogError("Eroare la citirea portului: " + e.Message);
@@ -54,12 +53,10 @@ public class ArduinoQuiz : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 //quizManager.AnswerQuestion(true);
-                Debug.Log("Testare Editor: Adevărat");
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 //quizManager.AnswerQuestion(false);
-                Debug.Log("Testare Editor: Fals");
             }
         }
     }
@@ -69,7 +66,6 @@ public class ArduinoQuiz : MonoBehaviour
         if (serialPort != null && serialPort.IsOpen)
         {
             serialPort.Close();
-            Debug.Log("Port serial închis corect.");
         }
     }
 }
