@@ -142,11 +142,7 @@ PlayerSettings:
   tvOSBundleVersion: 1.0
   bundleVersion: 0.1
   preloadedAssets:
-  - {fileID: 11400000, guid: 2e2b0834714e79c429feb9aac4ea400d, type: 2}
-  - {fileID: -5779383703191336588, guid: 020db8db3f8233d44a7012bfc183e1fa, type: 2}
   - {fileID: -944628639613478452, guid: f06a483616ab12e42b56a48e90757644, type: 3}
-  - {fileID: 4800000, guid: c9f956787b1d945e7b36e0516201fc76, type: 3}
-  - {fileID: 4800000, guid: 0945859e5a1034c2cb6dce53cb4fb899, type: 3}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
