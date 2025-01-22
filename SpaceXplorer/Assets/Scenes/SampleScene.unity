@@ -1772,7 +1772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.066037714, g: 0.061365236, b: 0.061365236, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2614,15 +2614,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.54901963}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.627451}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: db6c65c3e66504e4fab545f33ba8a6c6, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4247,6 +4247,21 @@ PrefabInstance:
       propertyPath: m_Text
       value: Inelele lui Saturn sunt formate in general din gheata si roci.
       objectReference: {fileID: 0}
+    - target: {fileID: 5364742061641240746, guid: dc3b66562b055694ab3dc13f8823d6af,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5364742061641240746, guid: dc3b66562b055694ab3dc13f8823d6af,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5364742061641240746, guid: dc3b66562b055694ab3dc13f8823d6af,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7020945272002131023, guid: dc3b66562b055694ab3dc13f8823d6af,
         type: 3}
       propertyPath: m_Pivot.x
@@ -4774,6 +4789,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Saturn este cea mai densa planeta din Sistemul Solar.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5364742061641240746, guid: dc3b66562b055694ab3dc13f8823d6af,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5364742061641240746, guid: dc3b66562b055694ab3dc13f8823d6af,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5364742061641240746, guid: dc3b66562b055694ab3dc13f8823d6af,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7020945272002131023, guid: dc3b66562b055694ab3dc13f8823d6af,
         type: 3}
