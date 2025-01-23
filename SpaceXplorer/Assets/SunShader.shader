@@ -9,16 +9,15 @@
 
     SubShader
     {
-        Tags { "Queue"="Transparent" "RenderType"="Transparent" }
+        Tags { "Queue"="Geometry" "RenderType"="Opaque" }
         LOD 100
 
         Pass
         {
-            Blend SrcAlpha One
-            Lighting Off
-            ZWrite On       // Activăm scrierea în buffer-ul de adâncime
-            ZTest LEqual    // Asigurăm că obiectele sunt desenate în ordinea corectă
-            Cull Back
+            ZWrite On        // Asigură scrierea în buffer-ul de adâncime
+            ZTest LEqual     // Obiectele sunt desenate corect
+            Blend Off        // Oprește transparența
+            Cull Back        // Ascunde fața din spate
 
             CGPROGRAM
             #pragma vertex vert
@@ -59,5 +58,5 @@
         }
     }
 
-    FallBack "Unlit/Transparent"
+    FallBack "Diffuse"
 }
